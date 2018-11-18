@@ -1,0 +1,2 @@
+# MultiplicationTable
+no loop
