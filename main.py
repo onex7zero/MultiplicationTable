@@ -1,4 +1,3 @@
-import math
 def main():
     createMulTable(9,9)
 
@@ -22,7 +21,6 @@ def printItem(row,column,valuelist):
         print(row,'*',column,'=',valuelist[str(column)+str(row)],end=' ')
         if (row-1 != 0):
             printItem(row-1,column,valuelist)
-
 
 def calculateMulValue(row,column):
     valuelist = {}
