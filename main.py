@@ -25,24 +25,24 @@ def printItem(row,column,valuelist):
 def calculateMulValue(row,column):
     valuelist = {}
     mul(row,column,valuelist)
-    valuelist['11'] = 1
     return valuelist
 
 def mul(row,column,valuelist):
-    if row == 1:
-        if (str(row)+str(column)) not in valuelist:
-            if (str(column)+str(row)) not in valuelist:
-                valuelist[str(row)+str(column)] = column
-    if column == 1:
-        if (str(column)+str(row)) not in valuelist:
-            if (str(row)+str(column)) not in valuelist:
-                valuelist[str(row)+str(column)] = row
     if row > 1 and column > 1:
         if (str(column)+str(row)) not in valuelist:
             if (str(row)+str(column)) not in valuelist:
                 valuelist[str(row)+str(column)] = row * column
                 mul(row-1,column,valuelist)
                 mul(row,column-1,valuelist)
+                mul(1,1,valuelist)
+    elif row == 1:
+        if (str(row)+str(column)) not in valuelist:
+            if (str(column)+str(row)) not in valuelist:
+                valuelist[str(row)+str(column)] = column
+    elif column == 1:
+        if (str(column)+str(row)) not in valuelist:
+            if (str(row)+str(column)) not in valuelist:
+                valuelist[str(row)+str(column)] = row
     
 if __name__ == '__main__':
     main()
